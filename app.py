@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 
 # ── Путь к директории приложения ─────────────────────────────────────────────
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).resolve().parent
 
 # ── Импорт вычислительного модуля ─────────────────────────────────────────────
 import sys
@@ -217,7 +217,7 @@ with tab1:
             if val >= 45: return "background-color:#713f12;color:#fde68a"
             return "background-color:#7f1d1d;color:#fca5a5"
 
-        styled = display_df.style.applymap(color_e, subset=["E"]) \
+        styled = display_df.style.map(color_e, subset=["E"]) \
             .format({"P": "{:.1f}", "R": "{:.1f}", "V": "{:.1f}", "S": "{:.1f}", "E": "{:.1f}"}) \
             .background_gradient(subset=["P", "R", "V", "S"], cmap="Blues", vmin=0, vmax=100)
         st.dataframe(styled, use_container_width=True, height=350)
