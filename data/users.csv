@@ -1,0 +1,9 @@
+login,role,level,team
+alice,backend,senior,Alpha
+bob,backend,middle,Alpha
+carol,frontend,senior,Beta
+dave,frontend,junior,Beta
+eve,qa,middle,Alpha
+frank,pm,senior,Beta
+grace,data scientist,middle,Alpha
+henry,qa,junior,Beta

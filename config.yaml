@@ -1,0 +1,42 @@
+weights:
+  alpha: 0.30   # P-layer — процессная эффективность
+  beta: 0.25    # R-layer — ролево-функциональная эффективность
+  gamma: 0.25   # V-layer — ценностный вклад
+  delta: 0.20   # S-layer — социально-командный вклад
+
+role_weights:
+  backend:
+    pr_merged: 0.45
+    issues_closed: 0.30
+    commits: 0.25
+  frontend:
+    pr_merged: 0.40
+    issues_closed: 0.35
+    commits: 0.25
+  qa:
+    issues_closed: 0.55
+    pr_merged: 0.25
+    commits: 0.20
+  pm:
+    issues_closed: 0.60
+    pr_merged: 0.15
+    commits: 0.25
+  data scientist:
+    pr_merged: 0.40
+    issues_closed: 0.30
+    commits: 0.30
+
+value_labels:
+  critical: 1.0
+  bug: 0.8
+  feature: 0.70
+  enhancement: 0.55
+  refactor: 0.50
+  documentation: 0.30
+  question: 0.15
+  duplicate: 0.05
+
+normalization:
+  minimize:
+    - time_to_close_hours
+    - time_to_first_response_hours
