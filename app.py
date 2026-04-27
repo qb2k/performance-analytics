@@ -216,10 +216,14 @@ with tab1:
             if val >= 65: return "background-color:#14532d;color:#86efac"
             if val >= 45: return "background-color:#713f12;color:#fde68a"
             return "background-color:#7f1d1d;color:#fca5a5"
+        
+        def color_layer(val):
+            intensity = int((val / 100) * 40)
+            return f"background-color: rgba(99,149,255,0.{intensity:02d}); color: #e2e8f0"
 
         styled = display_df.style.map(color_e, subset=["E"]) \
             .format({"P": "{:.1f}", "R": "{:.1f}", "V": "{:.1f}", "S": "{:.1f}", "E": "{:.1f}"}) \
-            .background_gradient(subset=["P", "R", "V", "S"], cmap="Blues", vmin=0, vmax=100)
+            .map(color_layer, subset=["P", "R", "V", "S"])
         st.dataframe(styled, use_container_width=True, height=350)
 
     with col_right:
